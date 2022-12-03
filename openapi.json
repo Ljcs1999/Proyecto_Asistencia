@@ -1,0 +1,4864 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "backend-asistencia",
+    "version": "0.0.1",
+    "description": "backend-asistencia",
+    "contact": {
+      "name": "Ljcs1999",
+      "email": "Ljcs_1999@hotmail.com"
+    }
+  },
+  "paths": {
+    "/alumnos/count": {
+      "get": {
+        "x-controller-name": "AlumnoController",
+        "x-operation-name": "count",
+        "tags": [
+          "AlumnoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Alumno model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Alumno.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Alumno>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "AlumnoController.count"
+      }
+    },
+    "/alumnos/{id}": {
+      "put": {
+        "x-controller-name": "AlumnoController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "AlumnoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Alumno PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Alumno"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "AlumnoController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "AlumnoController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "AlumnoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Alumno PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlumnoPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "AlumnoController.updateById"
+      },
+      "get": {
+        "x-controller-name": "AlumnoController",
+        "x-operation-name": "findById",
+        "tags": [
+          "AlumnoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Alumno model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AlumnoWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Alumno.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "AlumnoController.findById"
+      },
+      "delete": {
+        "x-controller-name": "AlumnoController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "AlumnoController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Alumno DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "AlumnoController.deleteById"
+      }
+    },
+    "/alumnos": {
+      "post": {
+        "x-controller-name": "AlumnoController",
+        "x-operation-name": "create",
+        "tags": [
+          "AlumnoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Alumno model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Alumno"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewAlumno"
+              }
+            }
+          }
+        },
+        "operationId": "AlumnoController.create"
+      },
+      "patch": {
+        "x-controller-name": "AlumnoController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "AlumnoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Alumno PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Alumno.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Alumno>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AlumnoPartial"
+              }
+            }
+          }
+        },
+        "operationId": "AlumnoController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "AlumnoController",
+        "x-operation-name": "find",
+        "tags": [
+          "AlumnoController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Alumno model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AlumnoWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Alumno.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "AlumnoController.find"
+      }
+    },
+    "/asistencias/count": {
+      "get": {
+        "x-controller-name": "AsistenciaController",
+        "x-operation-name": "count",
+        "tags": [
+          "AsistenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Asistencia model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Asistencia.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Asistencia>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "AsistenciaController.count"
+      }
+    },
+    "/asistencias/{id}": {
+      "put": {
+        "x-controller-name": "AsistenciaController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "AsistenciaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Asistencia PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Asistencia"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "AsistenciaController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "AsistenciaController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "AsistenciaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Asistencia PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AsistenciaPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "AsistenciaController.updateById"
+      },
+      "get": {
+        "x-controller-name": "AsistenciaController",
+        "x-operation-name": "findById",
+        "tags": [
+          "AsistenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Asistencia model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AsistenciaWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Asistencia.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "AsistenciaController.findById"
+      },
+      "delete": {
+        "x-controller-name": "AsistenciaController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "AsistenciaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Asistencia DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "AsistenciaController.deleteById"
+      }
+    },
+    "/asistencias": {
+      "post": {
+        "x-controller-name": "AsistenciaController",
+        "x-operation-name": "create",
+        "tags": [
+          "AsistenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Asistencia model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Asistencia"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewAsistencia"
+              }
+            }
+          }
+        },
+        "operationId": "AsistenciaController.create"
+      },
+      "patch": {
+        "x-controller-name": "AsistenciaController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "AsistenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Asistencia PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Asistencia.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Asistencia>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AsistenciaPartial"
+              }
+            }
+          }
+        },
+        "operationId": "AsistenciaController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "AsistenciaController",
+        "x-operation-name": "find",
+        "tags": [
+          "AsistenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Asistencia model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AsistenciaWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Asistencia.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "AsistenciaController.find"
+      }
+    },
+    "/detalle-asistencias/count": {
+      "get": {
+        "x-controller-name": "DetalleAsistenciaController",
+        "x-operation-name": "count",
+        "tags": [
+          "DetalleAsistenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "DetalleAsistencia model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "DetalleAsistencia.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<DetalleAsistencia>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "DetalleAsistenciaController.count"
+      }
+    },
+    "/detalle-asistencias/{id}": {
+      "put": {
+        "x-controller-name": "DetalleAsistenciaController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "DetalleAsistenciaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "DetalleAsistencia PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DetalleAsistencia"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "DetalleAsistenciaController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "DetalleAsistenciaController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "DetalleAsistenciaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "DetalleAsistencia PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DetalleAsistenciaPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "DetalleAsistenciaController.updateById"
+      },
+      "get": {
+        "x-controller-name": "DetalleAsistenciaController",
+        "x-operation-name": "findById",
+        "tags": [
+          "DetalleAsistenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "DetalleAsistencia model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleAsistenciaWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleAsistencia.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "DetalleAsistenciaController.findById"
+      },
+      "delete": {
+        "x-controller-name": "DetalleAsistenciaController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "DetalleAsistenciaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "DetalleAsistencia DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "DetalleAsistenciaController.deleteById"
+      }
+    },
+    "/detalle-asistencias": {
+      "post": {
+        "x-controller-name": "DetalleAsistenciaController",
+        "x-operation-name": "create",
+        "tags": [
+          "DetalleAsistenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "DetalleAsistencia model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleAsistencia"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewDetalleAsistencia"
+              }
+            }
+          }
+        },
+        "operationId": "DetalleAsistenciaController.create"
+      },
+      "patch": {
+        "x-controller-name": "DetalleAsistenciaController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "DetalleAsistenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "DetalleAsistencia PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "DetalleAsistencia.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<DetalleAsistencia>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DetalleAsistenciaPartial"
+              }
+            }
+          }
+        },
+        "operationId": "DetalleAsistenciaController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "DetalleAsistenciaController",
+        "x-operation-name": "find",
+        "tags": [
+          "DetalleAsistenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of DetalleAsistencia model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetalleAsistenciaWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleAsistencia.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "DetalleAsistenciaController.find"
+      }
+    },
+    "/detalle-matriculas/count": {
+      "get": {
+        "x-controller-name": "DetalleMatriculaController",
+        "x-operation-name": "count",
+        "tags": [
+          "DetalleMatriculaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "DetalleMatricula model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "DetalleMatricula.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<DetalleMatricula>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "DetalleMatriculaController.count"
+      }
+    },
+    "/detalle-matriculas/{id}": {
+      "put": {
+        "x-controller-name": "DetalleMatriculaController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "DetalleMatriculaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "DetalleMatricula PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DetalleMatricula"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "DetalleMatriculaController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "DetalleMatriculaController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "DetalleMatriculaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "DetalleMatricula PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DetalleMatriculaPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "DetalleMatriculaController.updateById"
+      },
+      "get": {
+        "x-controller-name": "DetalleMatriculaController",
+        "x-operation-name": "findById",
+        "tags": [
+          "DetalleMatriculaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "DetalleMatricula model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleMatriculaWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleMatricula.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "DetalleMatriculaController.findById"
+      },
+      "delete": {
+        "x-controller-name": "DetalleMatriculaController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "DetalleMatriculaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "DetalleMatricula DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "DetalleMatriculaController.deleteById"
+      }
+    },
+    "/detalle-matriculas": {
+      "post": {
+        "x-controller-name": "DetalleMatriculaController",
+        "x-operation-name": "create",
+        "tags": [
+          "DetalleMatriculaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "DetalleMatricula model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleMatricula"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewDetalleMatricula"
+              }
+            }
+          }
+        },
+        "operationId": "DetalleMatriculaController.create"
+      },
+      "patch": {
+        "x-controller-name": "DetalleMatriculaController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "DetalleMatriculaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "DetalleMatricula PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "DetalleMatricula.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<DetalleMatricula>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DetalleMatriculaPartial"
+              }
+            }
+          }
+        },
+        "operationId": "DetalleMatriculaController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "DetalleMatriculaController",
+        "x-operation-name": "find",
+        "tags": [
+          "DetalleMatriculaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of DetalleMatricula model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DetalleMatriculaWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DetalleMatricula.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "DetalleMatriculaController.find"
+      }
+    },
+    "/docentes/count": {
+      "get": {
+        "x-controller-name": "DocenteController",
+        "x-operation-name": "count",
+        "tags": [
+          "DocenteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Docente model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Docente.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Docente>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "DocenteController.count"
+      }
+    },
+    "/docentes/{id}": {
+      "put": {
+        "x-controller-name": "DocenteController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "DocenteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Docente PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Docente"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "DocenteController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "DocenteController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "DocenteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Docente PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocentePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "DocenteController.updateById"
+      },
+      "get": {
+        "x-controller-name": "DocenteController",
+        "x-operation-name": "findById",
+        "tags": [
+          "DocenteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Docente model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocenteWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Docente.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "DocenteController.findById"
+      },
+      "delete": {
+        "x-controller-name": "DocenteController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "DocenteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Docente DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "DocenteController.deleteById"
+      }
+    },
+    "/docentes": {
+      "post": {
+        "x-controller-name": "DocenteController",
+        "x-operation-name": "create",
+        "tags": [
+          "DocenteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Docente model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Docente"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewDocente"
+              }
+            }
+          }
+        },
+        "operationId": "DocenteController.create"
+      },
+      "patch": {
+        "x-controller-name": "DocenteController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "DocenteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Docente PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Docente.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Docente>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocentePartial"
+              }
+            }
+          }
+        },
+        "operationId": "DocenteController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "DocenteController",
+        "x-operation-name": "find",
+        "tags": [
+          "DocenteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Docente model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DocenteWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Docente.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "DocenteController.find"
+      }
+    },
+    "/horarios/count": {
+      "get": {
+        "x-controller-name": "HorarioController",
+        "x-operation-name": "count",
+        "tags": [
+          "HorarioController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Horario model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Horario.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Horario>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "HorarioController.count"
+      }
+    },
+    "/horarios/{id}": {
+      "put": {
+        "x-controller-name": "HorarioController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "HorarioController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Horario PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Horario"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "HorarioController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "HorarioController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "HorarioController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Horario PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HorarioPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "HorarioController.updateById"
+      },
+      "get": {
+        "x-controller-name": "HorarioController",
+        "x-operation-name": "findById",
+        "tags": [
+          "HorarioController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Horario model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HorarioWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Horario.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "HorarioController.findById"
+      },
+      "delete": {
+        "x-controller-name": "HorarioController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "HorarioController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Horario DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "HorarioController.deleteById"
+      }
+    },
+    "/horarios": {
+      "post": {
+        "x-controller-name": "HorarioController",
+        "x-operation-name": "create",
+        "tags": [
+          "HorarioController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Horario model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Horario"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewHorario"
+              }
+            }
+          }
+        },
+        "operationId": "HorarioController.create"
+      },
+      "patch": {
+        "x-controller-name": "HorarioController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "HorarioController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Horario PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Horario.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Horario>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HorarioPartial"
+              }
+            }
+          }
+        },
+        "operationId": "HorarioController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "HorarioController",
+        "x-operation-name": "find",
+        "tags": [
+          "HorarioController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Horario model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HorarioWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Horario.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "HorarioController.find"
+      }
+    },
+    "/materias/count": {
+      "get": {
+        "x-controller-name": "MateriaController",
+        "x-operation-name": "count",
+        "tags": [
+          "MateriaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Materia model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Materia.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Materia>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MateriaController.count"
+      }
+    },
+    "/materias/{id}": {
+      "put": {
+        "x-controller-name": "MateriaController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "MateriaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Materia PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Materia"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "MateriaController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "MateriaController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "MateriaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Materia PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MateriaPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "MateriaController.updateById"
+      },
+      "get": {
+        "x-controller-name": "MateriaController",
+        "x-operation-name": "findById",
+        "tags": [
+          "MateriaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Materia model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MateriaWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Materia.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MateriaController.findById"
+      },
+      "delete": {
+        "x-controller-name": "MateriaController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "MateriaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Materia DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "MateriaController.deleteById"
+      }
+    },
+    "/materias": {
+      "post": {
+        "x-controller-name": "MateriaController",
+        "x-operation-name": "create",
+        "tags": [
+          "MateriaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Materia model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Materia"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewMateria"
+              }
+            }
+          }
+        },
+        "operationId": "MateriaController.create"
+      },
+      "patch": {
+        "x-controller-name": "MateriaController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "MateriaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Materia PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Materia.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Materia>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MateriaPartial"
+              }
+            }
+          }
+        },
+        "operationId": "MateriaController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "MateriaController",
+        "x-operation-name": "find",
+        "tags": [
+          "MateriaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Materia model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MateriaWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Materia.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MateriaController.find"
+      }
+    },
+    "/matriculas/count": {
+      "get": {
+        "x-controller-name": "MatriculaController",
+        "x-operation-name": "count",
+        "tags": [
+          "MatriculaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Matricula model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Matricula.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Matricula>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MatriculaController.count"
+      }
+    },
+    "/matriculas/{id}": {
+      "put": {
+        "x-controller-name": "MatriculaController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "MatriculaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Matricula PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Matricula"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "MatriculaController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "MatriculaController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "MatriculaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Matricula PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MatriculaPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "MatriculaController.updateById"
+      },
+      "get": {
+        "x-controller-name": "MatriculaController",
+        "x-operation-name": "findById",
+        "tags": [
+          "MatriculaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Matricula model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatriculaWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Matricula.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MatriculaController.findById"
+      },
+      "delete": {
+        "x-controller-name": "MatriculaController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "MatriculaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Matricula DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "MatriculaController.deleteById"
+      }
+    },
+    "/matriculas": {
+      "post": {
+        "x-controller-name": "MatriculaController",
+        "x-operation-name": "create",
+        "tags": [
+          "MatriculaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Matricula model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Matricula"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewMatricula"
+              }
+            }
+          }
+        },
+        "operationId": "MatriculaController.create"
+      },
+      "patch": {
+        "x-controller-name": "MatriculaController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "MatriculaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Matricula PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Matricula.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Matricula>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MatriculaPartial"
+              }
+            }
+          }
+        },
+        "operationId": "MatriculaController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "MatriculaController",
+        "x-operation-name": "find",
+        "tags": [
+          "MatriculaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Matricula model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatriculaWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Matricula.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "MatriculaController.find"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    },
+    "/seccions/count": {
+      "get": {
+        "x-controller-name": "SeccionController",
+        "x-operation-name": "count",
+        "tags": [
+          "SeccionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Seccion model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Seccion.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Seccion>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SeccionController.count"
+      }
+    },
+    "/seccions/{id}": {
+      "put": {
+        "x-controller-name": "SeccionController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "SeccionController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Seccion PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Seccion"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "SeccionController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "SeccionController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "SeccionController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Seccion PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SeccionPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "SeccionController.updateById"
+      },
+      "get": {
+        "x-controller-name": "SeccionController",
+        "x-operation-name": "findById",
+        "tags": [
+          "SeccionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Seccion model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeccionWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Seccion.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SeccionController.findById"
+      },
+      "delete": {
+        "x-controller-name": "SeccionController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "SeccionController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Seccion DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "SeccionController.deleteById"
+      }
+    },
+    "/seccions": {
+      "post": {
+        "x-controller-name": "SeccionController",
+        "x-operation-name": "create",
+        "tags": [
+          "SeccionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Seccion model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Seccion"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewSeccion"
+              }
+            }
+          }
+        },
+        "operationId": "SeccionController.create"
+      },
+      "patch": {
+        "x-controller-name": "SeccionController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "SeccionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Seccion PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Seccion.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Seccion>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SeccionPartial"
+              }
+            }
+          }
+        },
+        "operationId": "SeccionController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "SeccionController",
+        "x-operation-name": "find",
+        "tags": [
+          "SeccionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Seccion model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SeccionWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Seccion.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "SeccionController.find"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Alumno": {
+        "title": "Alumno",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "nombre": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre"
+        ],
+        "additionalProperties": false
+      },
+      "NewAlumno": {
+        "title": "NewAlumno",
+        "type": "object",
+        "description": "(tsType: Omit<Alumno, 'id'>, schemaOptions: { title: 'NewAlumno', exclude: [ 'id' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Alumno, 'id'>"
+      },
+      "AlumnoWithRelations": {
+        "title": "AlumnoWithRelations",
+        "type": "object",
+        "description": "(tsType: AlumnoWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "nombre": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "AlumnoWithRelations"
+      },
+      "AlumnoPartial": {
+        "title": "AlumnoPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Alumno>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "nombre": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Alumno>"
+      },
+      "Asistencia": {
+        "title": "Asistencia",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "Fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Seccion_id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "Fecha",
+          "Seccion_id"
+        ],
+        "additionalProperties": false
+      },
+      "NewAsistencia": {
+        "title": "NewAsistencia",
+        "type": "object",
+        "description": "(tsType: Omit<Asistencia, 'id'>, schemaOptions: { title: 'NewAsistencia', exclude: [ 'id' ] })",
+        "properties": {
+          "Fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Seccion_id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "Fecha",
+          "Seccion_id"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Asistencia, 'id'>"
+      },
+      "AsistenciaWithRelations": {
+        "title": "AsistenciaWithRelations",
+        "type": "object",
+        "description": "(tsType: AsistenciaWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "Fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Seccion_id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "Fecha",
+          "Seccion_id"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "AsistenciaWithRelations"
+      },
+      "AsistenciaPartial": {
+        "title": "AsistenciaPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Asistencia>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "Fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "Seccion_id": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Asistencia>"
+      },
+      "DetalleAsistencia": {
+        "title": "DetalleAsistencia",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "Asistencia_id": {
+            "type": "number"
+          },
+          "Alumno_id": {
+            "type": "number"
+          },
+          "Estado": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "Asistencia_id",
+          "Alumno_id",
+          "Estado"
+        ],
+        "additionalProperties": false
+      },
+      "NewDetalleAsistencia": {
+        "title": "NewDetalleAsistencia",
+        "type": "object",
+        "description": "(tsType: Omit<DetalleAsistencia, 'id'>, schemaOptions: { title: 'NewDetalleAsistencia', exclude: [ 'id' ] })",
+        "properties": {
+          "Asistencia_id": {
+            "type": "number"
+          },
+          "Alumno_id": {
+            "type": "number"
+          },
+          "Estado": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "Asistencia_id",
+          "Alumno_id",
+          "Estado"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<DetalleAsistencia, 'id'>"
+      },
+      "DetalleAsistenciaWithRelations": {
+        "title": "DetalleAsistenciaWithRelations",
+        "type": "object",
+        "description": "(tsType: DetalleAsistenciaWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "Asistencia_id": {
+            "type": "number"
+          },
+          "Alumno_id": {
+            "type": "number"
+          },
+          "Estado": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "Asistencia_id",
+          "Alumno_id",
+          "Estado"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "DetalleAsistenciaWithRelations"
+      },
+      "DetalleAsistenciaPartial": {
+        "title": "DetalleAsistenciaPartial",
+        "type": "object",
+        "description": "(tsType: Partial<DetalleAsistencia>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "Asistencia_id": {
+            "type": "number"
+          },
+          "Alumno_id": {
+            "type": "number"
+          },
+          "Estado": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<DetalleAsistencia>"
+      },
+      "DetalleMatricula": {
+        "title": "DetalleMatricula",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "Matricula_id": {
+            "type": "number"
+          },
+          "Seccion_id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "Matricula_id",
+          "Seccion_id"
+        ],
+        "additionalProperties": false
+      },
+      "NewDetalleMatricula": {
+        "title": "NewDetalleMatricula",
+        "type": "object",
+        "description": "(tsType: Omit<DetalleMatricula, 'id'>, schemaOptions: { title: 'NewDetalleMatricula', exclude: [ 'id' ] })",
+        "properties": {
+          "Matricula_id": {
+            "type": "number"
+          },
+          "Seccion_id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "Matricula_id",
+          "Seccion_id"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<DetalleMatricula, 'id'>"
+      },
+      "DetalleMatriculaWithRelations": {
+        "title": "DetalleMatriculaWithRelations",
+        "type": "object",
+        "description": "(tsType: DetalleMatriculaWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "Matricula_id": {
+            "type": "number"
+          },
+          "Seccion_id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "Matricula_id",
+          "Seccion_id"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "DetalleMatriculaWithRelations"
+      },
+      "DetalleMatriculaPartial": {
+        "title": "DetalleMatriculaPartial",
+        "type": "object",
+        "description": "(tsType: Partial<DetalleMatricula>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "Matricula_id": {
+            "type": "number"
+          },
+          "Seccion_id": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<DetalleMatricula>"
+      },
+      "Docente": {
+        "title": "Docente",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "nombre": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre"
+        ],
+        "additionalProperties": false
+      },
+      "NewDocente": {
+        "title": "NewDocente",
+        "type": "object",
+        "description": "(tsType: Omit<Docente, 'id'>, schemaOptions: { title: 'NewDocente', exclude: [ 'id' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Docente, 'id'>"
+      },
+      "DocenteWithRelations": {
+        "title": "DocenteWithRelations",
+        "type": "object",
+        "description": "(tsType: DocenteWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "nombre": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "DocenteWithRelations"
+      },
+      "DocentePartial": {
+        "title": "DocentePartial",
+        "type": "object",
+        "description": "(tsType: Partial<Docente>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "nombre": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Docente>"
+      },
+      "Horario": {
+        "title": "Horario",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "dias": {
+            "type": "string"
+          },
+          "hora_inicio": {
+            "type": "string"
+          },
+          "hora_final": {
+            "type": "string"
+          },
+          "seccion_id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "dias",
+          "hora_inicio",
+          "hora_final",
+          "seccion_id"
+        ],
+        "additionalProperties": false
+      },
+      "NewHorario": {
+        "title": "NewHorario",
+        "type": "object",
+        "description": "(tsType: Omit<Horario, 'id'>, schemaOptions: { title: 'NewHorario', exclude: [ 'id' ] })",
+        "properties": {
+          "dias": {
+            "type": "string"
+          },
+          "hora_inicio": {
+            "type": "string"
+          },
+          "hora_final": {
+            "type": "string"
+          },
+          "seccion_id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "dias",
+          "hora_inicio",
+          "hora_final",
+          "seccion_id"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Horario, 'id'>"
+      },
+      "HorarioWithRelations": {
+        "title": "HorarioWithRelations",
+        "type": "object",
+        "description": "(tsType: HorarioWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "dias": {
+            "type": "string"
+          },
+          "hora_inicio": {
+            "type": "string"
+          },
+          "hora_final": {
+            "type": "string"
+          },
+          "seccion_id": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "dias",
+          "hora_inicio",
+          "hora_final",
+          "seccion_id"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "HorarioWithRelations"
+      },
+      "HorarioPartial": {
+        "title": "HorarioPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Horario>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "dias": {
+            "type": "string"
+          },
+          "hora_inicio": {
+            "type": "string"
+          },
+          "hora_final": {
+            "type": "string"
+          },
+          "seccion_id": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Horario>"
+      },
+      "Materia": {
+        "title": "Materia",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "codigo": {
+            "type": "number"
+          },
+          "UV": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "nombre",
+          "codigo",
+          "UV"
+        ],
+        "additionalProperties": false
+      },
+      "NewMateria": {
+        "title": "NewMateria",
+        "type": "object",
+        "description": "(tsType: Omit<Materia, 'id'>, schemaOptions: { title: 'NewMateria', exclude: [ 'id' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "codigo": {
+            "type": "number"
+          },
+          "UV": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "nombre",
+          "codigo",
+          "UV"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Materia, 'id'>"
+      },
+      "MateriaWithRelations": {
+        "title": "MateriaWithRelations",
+        "type": "object",
+        "description": "(tsType: MateriaWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "codigo": {
+            "type": "number"
+          },
+          "UV": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "nombre",
+          "codigo",
+          "UV"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "MateriaWithRelations"
+      },
+      "MateriaPartial": {
+        "title": "MateriaPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Materia>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "codigo": {
+            "type": "number"
+          },
+          "UV": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Materia>"
+      },
+      "Matricula": {
+        "title": "Matricula",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "alumno_id": {
+            "type": "number"
+          },
+          "periodo": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "alumno_id",
+          "periodo"
+        ],
+        "additionalProperties": false
+      },
+      "NewMatricula": {
+        "title": "NewMatricula",
+        "type": "object",
+        "description": "(tsType: Omit<Matricula, 'id'>, schemaOptions: { title: 'NewMatricula', exclude: [ 'id' ] })",
+        "properties": {
+          "alumno_id": {
+            "type": "number"
+          },
+          "periodo": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "alumno_id",
+          "periodo"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Matricula, 'id'>"
+      },
+      "MatriculaWithRelations": {
+        "title": "MatriculaWithRelations",
+        "type": "object",
+        "description": "(tsType: MatriculaWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "alumno_id": {
+            "type": "number"
+          },
+          "periodo": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "alumno_id",
+          "periodo"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "MatriculaWithRelations"
+      },
+      "MatriculaPartial": {
+        "title": "MatriculaPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Matricula>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "alumno_id": {
+            "type": "number"
+          },
+          "periodo": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Matricula>"
+      },
+      "Seccion": {
+        "title": "Seccion",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "horario_id": {
+            "type": "number"
+          },
+          "docente_id": {
+            "type": "number"
+          },
+          "materia_id": {
+            "type": "number"
+          },
+          "periodo": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "horario_id",
+          "docente_id",
+          "materia_id",
+          "periodo"
+        ],
+        "additionalProperties": false
+      },
+      "NewSeccion": {
+        "title": "NewSeccion",
+        "type": "object",
+        "description": "(tsType: Omit<Seccion, 'id'>, schemaOptions: { title: 'NewSeccion', exclude: [ 'id' ] })",
+        "properties": {
+          "horario_id": {
+            "type": "number"
+          },
+          "docente_id": {
+            "type": "number"
+          },
+          "materia_id": {
+            "type": "number"
+          },
+          "periodo": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "horario_id",
+          "docente_id",
+          "materia_id",
+          "periodo"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Seccion, 'id'>"
+      },
+      "SeccionWithRelations": {
+        "title": "SeccionWithRelations",
+        "type": "object",
+        "description": "(tsType: SeccionWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "horario_id": {
+            "type": "number"
+          },
+          "docente_id": {
+            "type": "number"
+          },
+          "materia_id": {
+            "type": "number"
+          },
+          "periodo": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "horario_id",
+          "docente_id",
+          "materia_id",
+          "periodo"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "SeccionWithRelations"
+      },
+      "SeccionPartial": {
+        "title": "SeccionPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Seccion>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "horario_id": {
+            "type": "number"
+          },
+          "docente_id": {
+            "type": "number"
+          },
+          "materia_id": {
+            "type": "number"
+          },
+          "periodo": {
+            "type": "number"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Seccion>"
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Alumno.Filter": {
+        "type": "object",
+        "title": "Alumno.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "nombre"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Alumno.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Alumno>"
+      },
+      "Alumno.Filter1": {
+        "type": "object",
+        "title": "Alumno.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Alumno.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "nombre"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Alumno.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Alumno>"
+      },
+      "Asistencia.Filter": {
+        "type": "object",
+        "title": "Asistencia.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "Fecha": {
+                    "type": "boolean"
+                  },
+                  "Seccion_id": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "Fecha",
+                    "Seccion_id"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Asistencia.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Asistencia>"
+      },
+      "Asistencia.Filter1": {
+        "type": "object",
+        "title": "Asistencia.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Asistencia.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "Fecha": {
+                    "type": "boolean"
+                  },
+                  "Seccion_id": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "Fecha",
+                    "Seccion_id"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Asistencia.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Asistencia>"
+      },
+      "DetalleAsistencia.Filter": {
+        "type": "object",
+        "title": "DetalleAsistencia.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "Asistencia_id": {
+                    "type": "boolean"
+                  },
+                  "Alumno_id": {
+                    "type": "boolean"
+                  },
+                  "Estado": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "Asistencia_id",
+                    "Alumno_id",
+                    "Estado"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "DetalleAsistencia.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<DetalleAsistencia>"
+      },
+      "DetalleAsistencia.Filter1": {
+        "type": "object",
+        "title": "DetalleAsistencia.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "DetalleAsistencia.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "Asistencia_id": {
+                    "type": "boolean"
+                  },
+                  "Alumno_id": {
+                    "type": "boolean"
+                  },
+                  "Estado": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "Asistencia_id",
+                    "Alumno_id",
+                    "Estado"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "DetalleAsistencia.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<DetalleAsistencia>"
+      },
+      "DetalleMatricula.Filter": {
+        "type": "object",
+        "title": "DetalleMatricula.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "Matricula_id": {
+                    "type": "boolean"
+                  },
+                  "Seccion_id": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "Matricula_id",
+                    "Seccion_id"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "DetalleMatricula.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<DetalleMatricula>"
+      },
+      "DetalleMatricula.Filter1": {
+        "type": "object",
+        "title": "DetalleMatricula.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "DetalleMatricula.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "Matricula_id": {
+                    "type": "boolean"
+                  },
+                  "Seccion_id": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "Matricula_id",
+                    "Seccion_id"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "DetalleMatricula.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<DetalleMatricula>"
+      },
+      "Docente.Filter": {
+        "type": "object",
+        "title": "Docente.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "nombre"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Docente.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Docente>"
+      },
+      "Docente.Filter1": {
+        "type": "object",
+        "title": "Docente.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Docente.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "nombre"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Docente.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Docente>"
+      },
+      "Horario.Filter": {
+        "type": "object",
+        "title": "Horario.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "dias": {
+                    "type": "boolean"
+                  },
+                  "hora_inicio": {
+                    "type": "boolean"
+                  },
+                  "hora_final": {
+                    "type": "boolean"
+                  },
+                  "seccion_id": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "dias",
+                    "hora_inicio",
+                    "hora_final",
+                    "seccion_id"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Horario.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Horario>"
+      },
+      "Horario.Filter1": {
+        "type": "object",
+        "title": "Horario.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Horario.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "dias": {
+                    "type": "boolean"
+                  },
+                  "hora_inicio": {
+                    "type": "boolean"
+                  },
+                  "hora_final": {
+                    "type": "boolean"
+                  },
+                  "seccion_id": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "dias",
+                    "hora_inicio",
+                    "hora_final",
+                    "seccion_id"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Horario.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Horario>"
+      },
+      "Materia.Filter": {
+        "type": "object",
+        "title": "Materia.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "codigo": {
+                    "type": "boolean"
+                  },
+                  "UV": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "nombre",
+                    "codigo",
+                    "UV"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Materia.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Materia>"
+      },
+      "Materia.Filter1": {
+        "type": "object",
+        "title": "Materia.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Materia.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "codigo": {
+                    "type": "boolean"
+                  },
+                  "UV": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "nombre",
+                    "codigo",
+                    "UV"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Materia.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Materia>"
+      },
+      "Matricula.Filter": {
+        "type": "object",
+        "title": "Matricula.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "alumno_id": {
+                    "type": "boolean"
+                  },
+                  "periodo": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "alumno_id",
+                    "periodo"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Matricula.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Matricula>"
+      },
+      "Matricula.Filter1": {
+        "type": "object",
+        "title": "Matricula.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Matricula.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "alumno_id": {
+                    "type": "boolean"
+                  },
+                  "periodo": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "alumno_id",
+                    "periodo"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Matricula.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Matricula>"
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "Seccion.Filter": {
+        "type": "object",
+        "title": "Seccion.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "horario_id": {
+                    "type": "boolean"
+                  },
+                  "docente_id": {
+                    "type": "boolean"
+                  },
+                  "materia_id": {
+                    "type": "boolean"
+                  },
+                  "periodo": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "horario_id",
+                    "docente_id",
+                    "materia_id",
+                    "periodo"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Seccion.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Seccion>"
+      },
+      "Seccion.Filter1": {
+        "type": "object",
+        "title": "Seccion.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Seccion.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "horario_id": {
+                    "type": "boolean"
+                  },
+                  "docente_id": {
+                    "type": "boolean"
+                  },
+                  "materia_id": {
+                    "type": "boolean"
+                  },
+                  "periodo": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "horario_id",
+                    "docente_id",
+                    "materia_id",
+                    "periodo"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Seccion.Fields"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Seccion>"
+      }
+    }
+  }
+}
