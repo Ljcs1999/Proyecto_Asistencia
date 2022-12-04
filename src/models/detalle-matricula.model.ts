@@ -1,4 +1,6 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {Matricula} from './matricula.model';
+import {Seccion} from './seccion.model';
 
 @model()
 export class DetalleMatricula extends Entity {
@@ -8,19 +10,11 @@ export class DetalleMatricula extends Entity {
     generated: true,
   })
   id?: number;
-
-  @property({
-    type: 'number',
-    required: true,
-  })
+  @belongsTo(() => Matricula, {name: 'Matricula'})
   Matricula_id: number;
 
-  @property({
-    type: 'number',
-    required: true,
-  })
+  @belongsTo(() => Seccion, {name: 'Seccion'})
   Seccion_id: number;
-
 
   constructor(data?: Partial<DetalleMatricula>) {
     super(data);
